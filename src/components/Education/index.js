@@ -76,12 +76,13 @@ const TimelineSection = styled.div`
 
 const index = () => {
   return (
-    <Container id="education">
+    <Container role="region">
       <Wrapper>
-        <Title>Education</Title>
+        <Title as="h2">Education</Title>
         <Desc>
-          My education has been a journey of self-discovery and growth. My
-          educational details are as follows.
+          Academic background and educational qualifications of Jawad Ullah. 
+          Pursuing Software Engineering degree with focus on modern web development 
+          technologies and full stack development practices.
         </Desc>
         <TimelineSection>
           <Timeline>

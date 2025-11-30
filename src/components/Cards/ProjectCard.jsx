@@ -154,12 +154,10 @@ const IconBtn = styled.a`
 
 const ProjectCard = ({ project, setOpenModal, variants }) => {
   const handleImageError = (e) => {
-    // Fallback to a placeholder if image fails to load
     e.target.src = `${process.env.PUBLIC_URL || ''}/HeroImage.jpg`;
-    e.target.onerror = null; // Prevent infinite loop
+    e.target.onerror = null;
   };
 
-  // Handle both imported images and public folder paths
   const getImageSrc = () => {
     if (typeof project.image === 'string' && project.image.startsWith('/')) {
       return `${process.env.PUBLIC_URL || ''}${project.image}`;
@@ -177,7 +175,7 @@ const ProjectCard = ({ project, setOpenModal, variants }) => {
     >
       <Image 
         src={getImageSrc()} 
-        alt={project.title} 
+        alt={`${project.title} - MERN Stack Web Application by Jawad Ullah - Full Stack Developer`} 
         loading="lazy"
         onError={handleImageError}
       />

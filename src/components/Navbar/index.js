@@ -22,7 +22,6 @@ const Navbar = () => {
   const theme = useTheme();
   const navbarRef = React.useRef(null);
 
-  // Close menu when clicking outside
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {

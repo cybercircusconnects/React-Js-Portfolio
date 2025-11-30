@@ -39,7 +39,6 @@ const Particle = styled.div`
 `;
 
 const ParticleBackground = () => {
-  // Generate random particles
   const particles = Array.from({ length: 20 }).map((_, i) => ({
     id: i,
     size: Math.random() * 5 + 2,

@@ -102,12 +102,13 @@ const Skills = () => {
   };
 
   return (
-    <Container id="skills" role="main">
+    <Container role="region">
       <Wrapper>
-        <Title as="h2">Skills</Title>
+        <Title as="h2">Technical Skills & Expertise</Title>
         <Desc>
-          Here are some of my skills on which I have been working on for the
-          past 3 years plus.
+          As an experienced full stack developer, I have mastered various technologies 
+          including React.js, Node.js, MongoDB, and modern JavaScript frameworks. 
+          Explore my technical skills as a MERN Stack developer and programmer.
         </Desc>
 
         <FilterContainer role="tablist" aria-label="Skill categories">

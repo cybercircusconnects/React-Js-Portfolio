@@ -8,9 +8,9 @@ import solarSolution from "../images/solar-solutions.png";
 
 export const Bio = {
   name: "Jawad Ullah",
-  roles: ["Mern Stack Web Dev", "Next Js Web Dev", "Programmer"],
+  roles: ["Full Stack Developer", "MERN Stack Developer", "Programmer"],
   description:
-    "I am a motivated and versatile individual with a strong commitment to self-learning, consistently eager to embrace new challenges. Fueled by a passion for continuous learning, I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am poised to make a meaningful contribution and achieve exceptional outcomes",
+    "Hi, I am Jawad Ullah. I am a Full Stack Developer & Programmer. Passionate MERN Stack Developer and programmer with 3+ years of experience building scalable web applications. Specialized in React.js, Node.js, Express.js, and MongoDB. Based in Lahore, Pakistan. Expert in creating high-performance, SEO-optimized web solutions.",
   github: "https://github.com/cybercircusconnects",
   resume: "https://jawad-ullah.vercel.app/resume",
   linkedin: "https://www.linkedin.com/in/jawad-ullah-424b66392/",
@@ -19,7 +19,6 @@ export const Bio = {
   youtube: "https://www.youtube.com/@thecyberjawad",
   facebook: "https://www.facebook.com/thecyberjawad",
   twitter: "https://x.com/thecyberjawad",
-  // All social links updated as per requirements
 };
 
 export const skills = [

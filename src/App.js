@@ -10,7 +10,6 @@ import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { darkTheme, lightTheme } from "./utils/Themes";
 
-// Lazy load components for performance
 const HeroSection = lazy(() => import("./components/HeroSection"));
 const Skills = lazy(() => import("./components/Skills"));
 const Experience = lazy(() => import("./components/Experience"));
@@ -66,20 +65,35 @@ function App() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <BrowserRouter>
           <SEO />
-          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <header>
+            <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          </header>
           <Body>
-            <Suspense fallback={<LoadingFallback />}>
-              <HeroSection />
-              <Wrapper>
-                <Skills />
-                <Experience />
-              </Wrapper>
-              <Projects openModal={openModal} setOpenModal={setOpenModal} />
-              <Wrapper>
-                <Education />
-                <Contact />
-              </Wrapper>
-              <Footer />
+            <main>
+              <Suspense fallback={<LoadingFallback />}>
+                <HeroSection />
+                <Wrapper>
+                  <section id="skills" aria-label="Technical Skills">
+                    <Skills />
+                  </section>
+                  <section id="experience" aria-label="Work Experience">
+                    <Experience />
+                  </section>
+                </Wrapper>
+                <section id="projects" aria-label="Portfolio Projects">
+                  <Projects openModal={openModal} setOpenModal={setOpenModal} />
+                </section>
+                <Wrapper>
+                  <section id="education" aria-label="Education">
+                    <Education />
+                  </section>
+                  <section id="contact" aria-label="Contact Information">
+                    <Contact />
+                  </section>
+                </Wrapper>
+                <footer>
+                  <Footer />
+                </footer>
               {openModal.state && (
                 <ProjectDetails
                   openModal={openModal}
@@ -87,6 +101,7 @@ function App() {
                 />
               )}
             </Suspense>
+            </main>
             <ScrollToTop />
             <ToastContainer
               position="bottom-right"

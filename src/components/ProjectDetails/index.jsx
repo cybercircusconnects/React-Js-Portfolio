@@ -200,17 +200,14 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
   const modalRef = useRef(null);
   const scrollPositionRef = useRef(0);
 
-  // Store scroll position when modal opens
   useEffect(() => {
     if (openModal?.state) {
       scrollPositionRef.current = window.pageYOffset || document.documentElement.scrollTop;
     }
   }, [openModal?.state]);
 
-  // Restore scroll position when modal closes - wait for MUI cleanup
   useEffect(() => {
     if (!openModal?.state) {
-      // Wait for MUI to finish its cleanup
       const restoreScroll = () => {
         if (scrollPositionRef.current !== undefined) {
           window.scrollTo({
@@ -219,14 +216,11 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
           });
         }
       };
-      
-      // Use multiple timeouts to ensure DOM is ready
       setTimeout(restoreScroll, 10);
       setTimeout(restoreScroll, 50);
     }
   }, [openModal?.state]);
 
-  // Close modal when clicking outside
   useEffect(() => {
     if (!openModal?.state) return;
 
@@ -235,8 +229,6 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
         setOpenModal({ state: false, project: null });
       }
     };
-
-    // Small delay to prevent immediate trigger
     const timeoutId = setTimeout(() => {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("touchstart", handleClickOutside);
@@ -267,7 +259,6 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
       }}
     >
       <Container ref={modalRef} onClick={(e) => {
-        // Close if clicking on the backdrop (Container itself)
         if (e.target === e.currentTarget) {
           handleClose();
         }

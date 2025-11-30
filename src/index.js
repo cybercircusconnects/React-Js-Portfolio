@@ -1,21 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
 
 const rootElement = document.getElementById("root");
-const root = ReactDOM.createRoot(rootElement);
 
 if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrateRoot(
-    rootElement,
+  ReactDOM.hydrate(
     <React.StrictMode>
       <App />
-    </React.StrictMode>
+    </React.StrictMode>,
+    rootElement
   );
 } else {
-  root.render(
+  ReactDOM.render(
     <React.StrictMode>
       <App />
-    </React.StrictMode>
+    </React.StrictMode>,
+    rootElement
   );
 }

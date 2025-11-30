@@ -5,12 +5,12 @@ import { Bio, projects, skills, experiences, education } from "../../data/consta
 const SEO = ({ title, description, keywords, image, url }) => {
   const siteTitle = title
     ? `${title} | ${Bio.name}`
-    : `${Bio.name} - Full Stack Developer | MERN Stack Expert | React.js & Node.js Specialist`;
+    : `${Bio.name} - Full Stack Developer | MERN Stack Expert | React.js Specialist | jawad programmer | jawad developer`;
   const siteDescription = description || 
-    "Portfolio of Jawad Ullah, a skilled Full Stack Developer specializing in MERN Stack, React.js, Next.js, Node.js, Nest.js, and modern web technologies. 3+ years of professional experience building scalable web applications. Expert in JavaScript, TypeScript, MongoDB, Express.js, and cloud deployment.";
+    `${Bio.name} (jawad programmer) - Expert Full Stack Developer specializing in MERN Stack, React.js, Node.js, Express.js, MongoDB. 3+ years experience building scalable web applications. Based in Lahore, Pakistan. Expert in creating high-performance, SEO-optimized web solutions. Professional programmer and developer with proven track record.`;
   const siteKeywords =
     keywords ||
-    "Full Stack Developer, MERN Stack Developer, React Developer, Next.js Developer, Node.js Developer, JavaScript Developer, TypeScript Developer, Web Developer Pakistan, Software Engineer, Frontend Developer, Backend Developer, React.js, Node.js, Express.js, MongoDB, Nest.js, Tailwind CSS, Material UI, Redux, Portfolio, Jawad Ullah, Web Development, Software Development, Pakistan Developer, Freelance Developer, Remote Developer, React Portfolio, Developer Portfolio";
+    "Jawad Ullah, jawad ullah, jawad programmer, jawad developer, full stack developer, MERN stack developer, React developer, Node.js developer, web developer Pakistan, programmer Lahore, JavaScript developer, MongoDB expert, Express.js developer, frontend developer, backend developer, software engineer, web application developer, portfolio, jawad ullah portfolio, thecyberjawad, developer lahore, programmer pakistan, React.js developer, Next.js developer, TypeScript developer, web development Pakistan";
   const siteImage =
     image || Bio.image || `${typeof window !== 'undefined' ? window.location.origin : 'https://jawad-ullah.vercel.app'}/HeroImage.jpg`;
   const siteUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://jawad-ullah.vercel.app');
@@ -18,13 +18,12 @@ const SEO = ({ title, description, keywords, image, url }) => {
   const siteLocale = "en_US";
   const siteType = "website";
 
-  // Person Schema (Enhanced)
   const personStructuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${siteUrl}#person`,
     name: Bio.name,
-    alternateName: "thecyberjawad",
+    alternateName: ["jawad programmer", "jawad developer", "thecyberjawad"],
     url: siteUrl,
     image: {
       "@type": "ImageObject",
@@ -58,20 +57,24 @@ const SEO = ({ title, description, keywords, image, url }) => {
     address: {
       "@type": "PostalAddress",
       addressCountry: "PK",
-      addressRegion: "Pakistan",
+      addressRegion: "Punjab",
+      addressLocality: "Lahore",
     },
   };
 
-  // Professional Service Schema
   const professionalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: `${Bio.name} - Web Development Services`,
-    description: siteDescription,
-    provider: {
-      "@type": "Person",
-      name: Bio.name,
+    name: `${Bio.name} - Full Stack Development Services`,
+    image: siteImage,
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lahore",
+      addressRegion: "Punjab",
+      addressCountry: "PK",
     },
+    url: siteUrl,
     areaServed: {
       "@type": "Country",
       name: "Pakistan",
@@ -85,9 +88,59 @@ const SEO = ({ title, description, keywords, image, url }) => {
       "Node.js Development",
       "MERN Stack Development",
     ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "09:00",
+      closes: "18:00",
+    },
   };
 
-  // Portfolio/Website Schema (Enhanced)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Who is Jawad Ullah?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${Bio.name} (jawad programmer) is an expert Full Stack Developer specializing in MERN Stack development with 3+ years of experience building scalable web applications. Based in Lahore, Pakistan.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What technologies does Jawad Ullah specialize in?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "I specialize in React.js, Node.js, Express.js, MongoDB, JavaScript, TypeScript, Next.js, Nest.js, and full MERN Stack development. I'm also experienced with Redux, Material UI, Tailwind CSS, and various modern web development tools.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Jawad Ullah located?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "I'm a full stack developer based in Lahore, Punjab, Pakistan. I work with clients globally as a remote developer.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is a MERN Stack developer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A MERN Stack developer specializes in MongoDB (database), Express.js (backend framework), React.js (frontend library), and Node.js (runtime environment). I'm an experienced MERN Stack developer with expertise in building full-stack web applications.",
+        },
+      },
+    ],
+  };
+
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -114,7 +167,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
     },
   };
 
-  // Projects Schema (Enhanced)
   const projectsStructuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -144,7 +196,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
     })),
   };
 
-  // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -164,7 +215,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
     ],
   };
 
-  // Organization Schema
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -185,7 +235,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
     ].filter(Boolean),
   };
 
-  // Skills Schema
   const skillsSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -205,7 +254,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{siteTitle}</title>
       <meta name="title" content={siteTitle} />
       <meta name="description" content={siteDescription} />
@@ -214,8 +262,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta name="copyright" content={Bio.name} />
       <meta name="application-name" content={siteName} />
       <link rel="canonical" href={siteUrl} />
-
-      {/* Open Graph / Facebook - Enhanced */}
       <meta property="og:type" content={siteType} />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:title" content={siteTitle} />
@@ -228,8 +274,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta property="og:locale" content={siteLocale} />
       <meta property="og:locale:alternate" content="en_US" />
       <meta property="article:author" content={Bio.name} />
-
-      {/* Twitter Card - Enhanced */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={siteUrl} />
       <meta name="twitter:title" content={siteTitle} />
@@ -239,8 +283,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta name="twitter:creator" content="@thecyberjawad" />
       <meta name="twitter:site" content="@thecyberjawad" />
       <meta name="twitter:domain" content="jawad-ullah.vercel.app" />
-
-      {/* Advanced SEO Meta Tags */}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -248,57 +290,44 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta name="revisit-after" content="7 days" />
       <meta name="distribution" content="global" />
       <meta name="rating" content="general" />
-      <meta name="geo.region" content="PK" />
-      <meta name="geo.placename" content="Pakistan" />
+      <meta name="geo.region" content="PK-PB" />
+      <meta name="geo.placename" content="Lahore" />
+      <meta name="geo.position" content="31.5204;74.3587" />
+      <meta name="ICBM" content="31.5204, 74.3587" />
       <meta name="theme-color" content="#854CE6" />
       <meta name="msapplication-TileColor" content="#854CE6" />
-      
-      {/* Mobile Optimization - Enhanced */}
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="apple-mobile-web-app-title" content={Bio.name} />
       <meta name="format-detection" content="telephone=no" />
-      
-      {/* Performance & Preconnect */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-      
-      {/* Structured Data - Person */}
       <script type="application/ld+json">
         {JSON.stringify(personStructuredData)}
       </script>
-      
-      {/* Structured Data - Website */}
       <script type="application/ld+json">
         {JSON.stringify(websiteStructuredData)}
       </script>
-      
-      {/* Structured Data - Projects */}
       <script type="application/ld+json">
         {JSON.stringify(projectsStructuredData)}
       </script>
-
-      {/* Structured Data - Professional Service */}
       <script type="application/ld+json">
         {JSON.stringify(professionalServiceSchema)}
       </script>
-
-      {/* Structured Data - Organization */}
       <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
       </script>
-
-      {/* Structured Data - Breadcrumb */}
       <script type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}
       </script>
-
-      {/* Structured Data - Skills */}
       <script type="application/ld+json">
         {JSON.stringify(skillsSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
       </script>
     </Helmet>
   );

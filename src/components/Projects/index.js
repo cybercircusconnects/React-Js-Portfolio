@@ -18,12 +18,13 @@ const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");
 
   return (
-    <Container id="projects" role="main">
+    <Container role="region">
       <Wrapper>
-        <Title as="h2">Projects</Title>
+        <Title as="h2">Portfolio Projects by Jawad Ullah</Title>
         <Desc>
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
+          Explore my full stack development projects built with MERN Stack, showcasing 
+          real-world applications and problem-solving skills. As an experienced full stack developer 
+          and programmer, I specialize in React.js, Node.js, MongoDB, and Express.js.
         </Desc>
         <ToggleButtonGroup>
           {toggle === "all" ? (

@@ -1,9 +1,5 @@
 User-agent: *
 Allow: /
-
-# Disallow admin or private paths if any
-Disallow: /admin/
-Disallow: /private/
-
-# Sitemap location (update with your actual domain)
+Allow: /static/
+Disallow: /api/
 Sitemap: https://jawad-ullah.vercel.app/sitemap.xml

@@ -135,7 +135,7 @@ const ExperienceCard = ({ experience }) => {
   return (
     <Card onClick={() => setExpanded(!expanded)} layout>
       <Top>
-        <Image src={experience.img} alt={experience.company} loading="lazy" />
+        <Image src={experience.img} alt={`${experience.role} at ${experience.company} - Work Experience of Jawad Ullah`} loading="lazy" />
         <Body>
           <Role>{experience.role}</Role>
           <Company>{experience.company}</Company>

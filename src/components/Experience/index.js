@@ -71,12 +71,13 @@ const TimelineSection = styled.div`
 
 const Experience = () => {
   return (
-    <Container id="experience" role="main">
+    <Container role="region">
       <Wrapper>
         <Title as="h2">Experience</Title>
         <Desc>
-          My work experience as a software engineer and working on different
-          companies and projects.
+          Professional work experience as a Full Stack Developer and MERN Stack programmer 
+          with leading technology companies. Expertise in building scalable web applications 
+          using React.js, Node.js, MongoDB, and modern development practices.
         </Desc>
         <TimelineSection>
           <VerticalTimeline>
@@ -99,7 +100,7 @@ const Experience = () => {
                 icon={
                   <img
                     src={experience.img}
-                    alt={experience.role}
+                    alt={`${experience.role} at ${experience.company} - Jawad Ullah Work Experience`}
                     style={{
                       width: "100%",
                       height: "100%",

@@ -54,7 +54,9 @@ const HeroSection = () => {
                   />
                 </Span>
               </TextLoop>
-              <SubTitle as="p">{Bio.description}</SubTitle>
+              <SubTitle as="p">
+                Passionate MERN Stack Developer and programmer with 3+ years of experience building scalable web applications. Specialized in React.js, Node.js, Express.js, and MongoDB. Based in Lahore, Pakistan. Expert in creating high-performance, SEO-optimized web solutions.
+              </SubTitle>
               <nav aria-label="Resume links">
                 <ResumeButton
                   href={Bio.resume}
@@ -78,7 +80,7 @@ const HeroSection = () => {
             >
               <Img 
                 src={HeroImg} 
-                alt="Jawad Ullah - Full Stack Developer" 
+                alt="Jawad Ullah - Full Stack Developer and Programmer | MERN Stack Expert | React.js Specialist" 
                 loading="eager"
                 width="400"
                 height="400"
