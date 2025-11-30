@@ -30,6 +30,7 @@ A modern, fully optimized React.js portfolio website showcasing skills, projects
 - ✅ **Rich Snippets Ready**: All structured data validated for Google Rich Results
 
 ### Design & UX
+
 - ✅ Modern glassmorphism effects
 - ✅ 3D interactive skill cards with tilt effects
 - ✅ Smooth scroll animations with Framer Motion
