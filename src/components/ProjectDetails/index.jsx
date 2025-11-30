@@ -1,34 +1,46 @@
 import { CloseRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { Modal } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: #000000a7;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
   display: flex;
-  align-items: top;
+  align-items: flex-start;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
   transition: all 0.5s ease;
+  cursor: pointer;
+  z-index: 1300;
+  
+  /* Prevent closing when clicking inside the wrapper */
+  > * {
+    cursor: default;
+  }
 `;
 
 const Wrapper = styled.div`
   max-width: 800px;
   width: 100%;
   border-radius: 16px;
-  margin: 50px 12px;
-  height: min-content;
+  margin: auto;
+  min-height: min-content;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text_primary};
   padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: default;
 `;
 
 const Title = styled.div`
@@ -65,10 +77,13 @@ const Desc = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  object-fit: cover;
+  max-height: 400px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 12px;
   margin-top: 30px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  background-color: ${({ theme }) => theme.black || '#000000'};
 `;
 
 const Label = styled.div`
@@ -180,15 +195,84 @@ const Button = styled.a`
   }
 `;
 
-const index = ({ openModal, setOpenModal }) => {
+const ProjectDetails = ({ openModal, setOpenModal }) => {
   const project = openModal?.project;
+  const modalRef = useRef(null);
+  const scrollPositionRef = useRef(0);
+
+  // Store scroll position when modal opens
+  useEffect(() => {
+    if (openModal?.state) {
+      scrollPositionRef.current = window.pageYOffset || document.documentElement.scrollTop;
+    }
+  }, [openModal?.state]);
+
+  // Restore scroll position when modal closes - wait for MUI cleanup
+  useEffect(() => {
+    if (!openModal?.state) {
+      // Wait for MUI to finish its cleanup
+      const restoreScroll = () => {
+        if (scrollPositionRef.current !== undefined) {
+          window.scrollTo({
+            top: scrollPositionRef.current,
+            behavior: 'auto'
+          });
+        }
+      };
+      
+      // Use multiple timeouts to ensure DOM is ready
+      setTimeout(restoreScroll, 10);
+      setTimeout(restoreScroll, 50);
+    }
+  }, [openModal?.state]);
+
+  // Close modal when clicking outside
+  useEffect(() => {
+    if (!openModal?.state) return;
+
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setOpenModal({ state: false, project: null });
+      }
+    };
+
+    // Small delay to prevent immediate trigger
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [openModal?.state, setOpenModal]);
+
+  const handleClose = () => {
+    setOpenModal({ state: false, project: null });
+  };
+
   return (
     <Modal
-      open={true}
-      onClose={() => setOpenModal({ state: false, project: null })}
+      open={openModal?.state || false}
+      onClose={handleClose}
+      disableScrollLock={false}
+      disableEnforceFocus={false}
+      disableAutoFocus={false}
+      sx={{
+        '& .MuiBackdrop-root': {
+          backgroundColor: 'rgba(0, 0, 0, 0.65)',
+        },
+      }}
     >
-      <Container>
-        <Wrapper>
+      <Container ref={modalRef} onClick={(e) => {
+        // Close if clicking on the backdrop (Container itself)
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
+      }}>
+        <Wrapper onClick={(e) => e.stopPropagation()}>
           <CloseRounded
             style={{
               position: "absolute",
@@ -196,14 +280,26 @@ const index = ({ openModal, setOpenModal }) => {
               right: "20px",
               cursor: "pointer",
             }}
-            onClick={() => setOpenModal({ state: false, project: null })}
+            onClick={handleClose}
           />
-          <Image src={project?.image} />
+          <Image 
+            src={
+              typeof project?.image === 'string' && project.image.startsWith('/')
+                ? `${process.env.PUBLIC_URL || ''}${project.image}`
+                : project?.image
+            } 
+            alt={project?.title || "Project image"} 
+            loading="lazy"
+            onError={(e) => {
+              e.target.src = `${process.env.PUBLIC_URL || ''}/HeroImage.jpg`;
+              e.target.onerror = null;
+            }}
+          />
           <Title>{project?.title}</Title>
           <Date>{project.date}</Date>
           <Tags>
-            {project?.tags.map((tag) => (
-              <Tag>{tag}</Tag>
+            {project?.tags.map((tag, index) => (
+              <Tag key={index}>{tag}</Tag>
             ))}
           </Tags>
           <Desc>{project?.description}</Desc>
@@ -213,7 +309,7 @@ const index = ({ openModal, setOpenModal }) => {
               <Members>
                 {project?.member.map((member) => (
                   <Member>
-                    <MemberImage src={member.img} />
+                    <MemberImage src={member.img} alt={member.name || "Team member"} loading="lazy" />
                     <MemberName>{member.name}</MemberName>
                     <a
                       href={member.github}
@@ -248,4 +344,4 @@ const index = ({ openModal, setOpenModal }) => {
   );
 };
 
-export default index;
+export default ProjectDetails;

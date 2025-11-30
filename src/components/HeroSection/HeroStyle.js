@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import _default from "../../themes/default";
 
 export const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
@@ -148,6 +147,28 @@ export const TextLoop = styled.div`
 export const Span = styled.span`
   color: ${({ theme }) => theme.primary};
   cursor: pointer;
+  background: linear-gradient(
+    to right,
+    ${({ theme }) => theme.primary},
+    #ff00cc,
+    ${({ theme }) => theme.primary}
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s linear infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 `;
 
 export const SubTitle = styled.div`

@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import ExperienceCard from "../Cards/ExperienceCard";
 import { experiences } from "../../data/constants";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import ExperienceCard from "../Cards/ExperienceCard";
 
 const Container = styled.div`
   display: flex;
@@ -55,7 +54,6 @@ const Desc = styled.div`
   max-width: 600px;
   color: ${({ theme }) => theme.text_secondary};
   @media (max-width: 768px) {
-    margin-top: 12px;
     font-size: 16px;
   }
 `;
@@ -71,35 +69,54 @@ const TimelineSection = styled.div`
   gap: 12px;
 `;
 
-const index = () => {
+const Experience = () => {
   return (
-    <Container id="experience">
+    <Container id="experience" role="main">
       <Wrapper>
-        <Title>Experience</Title>
+        <Title as="h2">Experience</Title>
         <Desc>
           My work experience as a software engineer and working on different
           companies and projects.
         </Desc>
         <TimelineSection>
-          <Timeline>
+          <VerticalTimeline>
             {experiences.map((experience, index) => (
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" color="secondary" />
-                  {index !== experiences.length - 1 && (
-                    <TimelineConnector style={{ background: "#854CE6" }} />
-                  )}
-                </TimelineSeparator>
-                <TimelineContent sx={{ py: "12px", px: 2 }}>
-                  <ExperienceCard experience={experience} />
-                </TimelineContent>
-              </TimelineItem>
+              <VerticalTimelineElement
+                key={index}
+                className="vertical-timeline-element--work"
+                contentStyle={{
+                  background: "transparent",
+                  color: "#fff",
+                  boxShadow: "none",
+                  border: "none",
+                  padding: 0,
+                }}
+                contentArrowStyle={{
+                  borderRight: "7px solid  rgba(255, 255, 255, 0.3)",
+                }}
+                date={experience.date}
+                iconStyle={{ background: "#854CE6", color: "#fff" }}
+                icon={
+                  <img
+                    src={experience.img}
+                    alt={experience.role}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                  />
+                }
+              >
+                <ExperienceCard experience={experience} />
+              </VerticalTimelineElement>
             ))}
-          </Timeline>
+          </VerticalTimeline>
         </TimelineSection>
       </Wrapper>
     </Container>
   );
 };
 
-export default index;
+export default Experience;

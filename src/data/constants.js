@@ -11,13 +11,15 @@ export const Bio = {
   roles: ["Mern Stack Web Dev", "Next Js Web Dev", "Programmer"],
   description:
     "I am a motivated and versatile individual with a strong commitment to self-learning, consistently eager to embrace new challenges. Fueled by a passion for continuous learning, I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am poised to make a meaningful contribution and achieve exceptional outcomes",
-  github: "https://github.com/NexusProgrammers",
-  resume:
-    "https://drive.google.com/file/d/13eqMhoMkpU3I-XT9RJ9RK-45R8BZ16KJ/view",
-  insta: "https://www.instagram.com/nexusprogrammers",
-  youtube: "https://www.youtube.com/@NexusProgrammers",
-  facebook: "https://www.facebook.com/NexusProgrammers",
-  twitter: "https://x.com/NexusProgrammer",
+  github: "https://github.com/cybercircusconnects",
+  resume: "https://jawad-ullah.vercel.app/resume",
+  linkedin: "https://www.linkedin.com/in/jawad-ullah-424b66392/",
+  insta: "https://www.instagram.com/thecyberjawad/",
+  threads: "https://www.threads.com/@thecyberjawad",
+  youtube: "https://www.youtube.com/@thecyberjawad",
+  facebook: "https://www.facebook.com/thecyberjawad",
+  twitter: "https://x.com/thecyberjawad",
+  // All social links updated as per requirements
 };
 
 export const skills = [
@@ -339,7 +341,7 @@ export const projects = [
     image: capitalGemologicalLaboratory,
     tags: ["Next Js", "Node Js", "Tailwind Css", "Qr-Code", "Redux Toolkit"],
     category: "web app",
-    webapp: "https://capitalgemologicallab.com",
+    webapp: "https://https://stones-project-frontend.vercel.app/",
   },
   {
     id: 6,
@@ -354,7 +356,7 @@ export const projects = [
     id: 7,
     title: "Practice Ecommerce to learn stripe - Shopito Ecommerce",
     description: "Ecommerce web app with stripe payment integration",
-    image: "live.png",
+    image: `${process.env.PUBLIC_URL || ''}/live.png`,
     tags: [
       "React Js",
       "CSS",
@@ -373,7 +375,7 @@ export const projects = [
       "Practice Ecommerce to learn Next Js, Prisma, Stripe - Next Js Ecommerce Shop",
     description:
       "Create Next Js 14 Ecommerce Shop Next-Auth,Stripe, Prisma,Mongo Db, Express Js",
-    image: "./shop.png",
+    image: `${process.env.PUBLIC_URL || ''}/shop.png`,
     tags: [
       "Next Js 14",
       "Typescript",
