@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "react-scripts build",
   "devCommand": "npm start",
   "installCommand": "npm install",
   "framework": "create-react-app"
