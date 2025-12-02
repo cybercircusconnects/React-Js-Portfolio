@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://jawad-ullah.vercel.app/</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/" />
     <image:image>
-      <image:loc>https://jawad-ullah.vercel.app/HeroImage.jpg</image:loc>
-      <image:title>Jawad Ullah - Full Stack Developer</image:title>
-      <image:caption>Portfolio of Jawad Ullah, MERN Stack Expert</image:caption>
+      <image:loc>https://jawadprogrammer-portfolio.vercel.app/HeroImage.jpg</image:loc>
+      <image:title>Jawad Ullah - Full Stack Developer | MERN Stack Specialist</image:title>
+      <image:caption>Professional portfolio of Jawad Ullah, a Full Stack Developer and MERN Stack specialist from Pakistan</image:caption>
+      <image:license>https://jawadprogrammer-portfolio.vercel.app/</image:license>
     </image:image>
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#about</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#about</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#about" />
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#skills</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#skills</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#skills" />
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#experience</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#experience</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#experience" />
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#projects</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#projects</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#projects" />
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#education</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#education</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#education" />
   </url>
   <url>
-    <loc>https://jawad-ullah.vercel.app/#contact</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://jawadprogrammer-portfolio.vercel.app/#contact</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jawad-ullah.vercel.app/resume</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawadprogrammer-portfolio.vercel.app/#contact" />
   </url>
 </urlset>

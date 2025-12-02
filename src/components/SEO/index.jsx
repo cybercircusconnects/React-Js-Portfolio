@@ -134,6 +134,22 @@ const SEO = ({ title, description, keywords, image, url }) => {
           text: "A MERN Stack developer specializes in MongoDB (database), Express.js (backend framework), React.js (frontend library), and Node.js (runtime environment). I'm an experienced MERN Stack developer with expertise in building full-stack web applications.",
         },
       },
+      {
+        "@type": "Question",
+        name: "What services does Jawad Ullah provide?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "I provide Full Stack Web Development, React Native Mobile App Development, API Development, Database Design, and custom software solutions using modern technologies like MERN Stack, Next.js, and TypeScript.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How can I contact Jawad Ullah?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can contact me via email at jawadprogrammer@gmail.com, through the contact form on this website, or via WhatsApp at +92 302 9825213. I'm also active on LinkedIn, GitHub, and other social media platforms.",
+        },
+      },
     ],
   };
 
@@ -248,6 +264,70 @@ const SEO = ({ title, description, keywords, image, url }) => {
     ),
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Full Stack Web Development",
+    provider: {
+      "@type": "Person",
+      name: Bio.name,
+      url: siteUrl
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Worldwide"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Web Development Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Full Stack Development",
+            description: "Complete web application development using MERN Stack"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "React Native Development",
+            description: "Cross-platform mobile app development"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "API Development",
+            description: "RESTful and GraphQL API development"
+          }
+        }
+      ]
+    }
+  };
+
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "Person",
+      name: Bio.name,
+      description: "Full Stack Developer and MERN Stack Specialist"
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5"
+    },
+    author: {
+      "@type": "Organization",
+      name: "Client Reviews"
+    }
+  };
+
   return (
     <Helmet>
       <title>{siteTitle}</title>
@@ -325,6 +405,26 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
       </script>
+      <script type="application/ld+json">
+        {JSON.stringify(serviceSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(reviewSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(skillsSchema)}
+      </script>
+      <meta name="format-detection" content="telephone=yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="msapplication-TileColor" content="#854CE6" />
+      <meta name="referrer" content="strict-origin-when-cross-origin" />
+      <meta name="rating" content="general" />
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="expires" content="never" />
+      <meta name="cache-control" content="public, max-age=31536000" />
+      <meta httpEquiv="x-dns-prefetch-control" content="on" />
+      <meta name="color-scheme" content="dark light" />
     </Helmet>
   );
 };
