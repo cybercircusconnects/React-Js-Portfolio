@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
   display: flex;
@@ -137,11 +137,15 @@ const ContactButton = styled.button`
   }
 `;
 
+const EMAILJS_SERVICE_ID = "service_rud9de9"; 
+const EMAILJS_TEMPLATE_ID = "template_jglssic"; 
+const EMAILJS_PUBLIC_KEY = "j9uF0VHPhgm2QXw--"; 
+
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form.current);
@@ -155,26 +159,52 @@ const Contact = () => {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address!");
+      return;
+    }
+
+    if (
+      EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
+      EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" ||
+      EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY"
+    ) {
+      toast.error("EmailJS is not configured. Please update the credentials in Contact component.");
+      console.error("EmailJS Configuration Error: Please update EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY in src/components/Contact/index.js");
+      return;
+    }
+
     setLoading(true);
-    emailjs
-      .sendForm(
-        "service_tox7kqs",
-        "template_nv7k7mj",
+    
+    try {
+      const result = await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         form.current,
-        "SybVGsYS52j2TfLbi"
-      )
-      .then(
-        (result) => {
-          setLoading(false);
-          toast.success("Email sent successfully!");
-          form.current.reset();
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error.text);
-          toast.error("Failed to send email. Please try again.");
-        }
+        EMAILJS_PUBLIC_KEY
       );
+
+      if (result.text === "OK") {
+        setLoading(false);
+        toast.success("Email sent successfully!");
+        form.current.reset();
+      } else {
+        setLoading(false);
+        toast.error("Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("EmailJS Error:", error);
+      
+      if (error.text) {
+        toast.error(`EmailJS Error: ${error.text}`);
+      } else if (error.message) {
+        toast.error(`Failed to send email: ${error.message}`);
+      } else {
+        toast.error("Failed to send email. Please try again later.");
+      }
+    }
   };
 
   return (
