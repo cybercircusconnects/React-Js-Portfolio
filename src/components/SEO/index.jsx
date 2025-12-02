@@ -5,9 +5,9 @@ import { Bio, projects, skills, experiences, education } from "../../data/consta
 const SEO = ({ title, description, keywords, image, url }) => {
   const siteTitle = title
     ? `${title} | ${Bio.name}`
-    : `${Bio.name} - Full Stack Developer | MERN Stack Expert | React.js Specialist | jawad programmer | jawad developer`;
+    : `${Bio.name} - Full Stack Developer | MERN Stack Specialist`;
   const siteDescription = description || 
-    `${Bio.name} (jawad programmer) - Expert Full Stack Developer specializing in MERN Stack, React.js, Node.js, Express.js, MongoDB. 3+ years experience building scalable web applications. Based in Lahore, Pakistan. Expert in creating high-performance, SEO-optimized web solutions. Professional programmer and developer with proven track record.`;
+    `Professional Full Stack Developer and MERN Stack specialist from Pakistan. Expert in React, Node.js, MongoDB, Express.js, Next.js, TypeScript, and React Native. 4+ years of experience building scalable web and mobile applications.`;
   const siteKeywords =
     keywords ||
     "Jawad Ullah, jawad ullah, jawad programmer, jawad developer, full stack developer, MERN stack developer, React developer, Node.js developer, web developer Pakistan, programmer Lahore, JavaScript developer, MongoDB expert, Express.js developer, frontend developer, backend developer, software engineer, web application developer, portfolio, jawad ullah portfolio, thecyberjawad, developer lahore, programmer pakistan, React.js developer, Next.js developer, TypeScript developer, web development Pakistan";
@@ -45,10 +45,6 @@ const SEO = ({ title, description, keywords, image, url }) => {
     knowsAbout: skills.flatMap(category => 
       category.skills.map(skill => skill.name)
     ),
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: education[0]?.school || "Virtual University of Pakistan",
-    },
     worksFor: experiences.map(exp => ({
       "@type": "Organization",
       name: exp.company,
@@ -111,7 +107,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
         name: "Who is Jawad Ullah?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `${Bio.name} (jawad programmer) is an expert Full Stack Developer specializing in MERN Stack development with 3+ years of experience building scalable web applications. Based in Lahore, Pakistan.`,
+          text: `${Bio.name} is a Professional Full Stack Developer and MERN Stack specialist from Pakistan. Expert in React, Node.js, MongoDB, Express.js, Next.js, TypeScript, and React Native with 4+ years of experience building scalable web and mobile applications.`,
         },
       },
       {

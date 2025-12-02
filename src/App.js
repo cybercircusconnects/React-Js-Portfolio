@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsApp from "./components/WhatsAppButton";
 import LoadingSkeleton from "./components/LoadingSkeleton";
 import SEO from "./components/SEO";
 import styled, { ThemeProvider } from "styled-components";
@@ -102,6 +103,7 @@ function App() {
               )}
             </Suspense>
             </main>
+            <WhatsApp />
             <ScrollToTop />
             <ToastContainer
               position="bottom-right"
